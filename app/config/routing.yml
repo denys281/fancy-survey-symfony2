@@ -1,0 +1,4 @@
+megogo_core:
+    resource: "@MegogoCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
