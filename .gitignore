@@ -9,5 +9,13 @@
 /vendor/
 /bin/
 /composer.phar
+
+#Not good practice but
+web/components/*
+app/config/deploy.rb
+
+.DS_Store
+*/.DS_Store
+Thumbs.db
+
 /.idea/
-/config/deploy.rb
