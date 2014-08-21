@@ -2,3 +2,7 @@ megogo_core:
     resource: "@MegogoCoreBundle/Resources/config/routing.yml"
     prefix:   /
 
+homepage:
+    pattern:  /
+    defaults: { _controller: MegogoCoreBundle:Core:index }
+
