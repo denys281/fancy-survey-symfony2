@@ -3,6 +3,7 @@
 namespace Megogo\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -24,6 +25,7 @@ class User
     /**
      * @var string
      *
+     * @Assert\NotNull()
      * @ORM\Column(name="first_name", type="string", length=255)
      */
     private $firstName;
@@ -31,12 +33,15 @@ class User
     /**
      * @var string
      *
+     * @Assert\NotNull()
      * @ORM\Column(name="last_name", type="string", length=255)
      */
     private $lastName;
 
     /**
      * @var string
+     *
+     * @Assert\Email()
      *
      * @ORM\Column(name="email", type="string", length=255)
      */
@@ -52,12 +57,14 @@ class User
     /**
      * @var float
      *
+     * @Assert\NotNull()
      * @ORM\Column(name="shoe_size", type="float")
      */
     private $shoeSize;
 
     /**
      * @var string
+     * @Assert\NotNull()
      *
      * @ORM\Column(name="user_session_id", type="string")
      */
@@ -66,6 +73,7 @@ class User
     /**
      * @var string
      *
+     * @Assert\Ip()
      * @ORM\Column(name="ip", type="string")
      */
     private $ip;
@@ -75,7 +83,7 @@ class User
      *
      * @ORM\Column(name="is_finish_survey", type="boolean")
      */
-    private $isFinishSurvey;
+    private $isFinishSurvey = false;
 
     /**
      * @ORM\OneToMany(targetEntity="Megogo\CoreBundle\Entity\Answer", mappedBy="user",  cascade={"remove"})

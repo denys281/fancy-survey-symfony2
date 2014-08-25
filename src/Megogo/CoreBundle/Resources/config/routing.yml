@@ -1,3 +1,19 @@
-megogo_core_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: MegogoCoreBundle:Default:index }
+save_step_one:
+    path:     api/v1/saveStepOne.json
+    defaults: { _controller: MegogoCoreBundle:Api:saveStepOne }
+
+render_step_two:
+    path:     api/v1/renderStepTwo.json
+    defaults: { _controller: MegogoCoreBundle:Api:renderStepTwo }
+
+save_step_two:
+    path:     api/v1/saveStepTwo.json
+    defaults: { _controller: MegogoCoreBundle:Api:saveStepTwo }
+
+render_step_three:
+    path:     api/v1/renderStepThree.json
+    defaults: { _controller: MegogoCoreBundle:Api:renderStepThree }
+
+get_user:
+    path:     api/v1/getUser.json
+    defaults: { _controller: MegogoCoreBundle:Api:getUser }

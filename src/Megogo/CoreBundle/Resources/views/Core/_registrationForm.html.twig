@@ -1,0 +1,65 @@
+{% form_theme form _self %}
+
+{% block form_errors -%}
+    {% if errors is defined -%}
+        {%- for error in errors -%}
+            <p class="help-block">{{ error.message }}</p>
+        {%- endfor -%}
+    {%- endif %}
+{%- endblock form_errors %}
+
+
+
+{{ form_start(form, {'attr': {'id': 'registration', 'class': 'form-horizontal' }}) }}
+{{ form_errors(form) }}
+<fieldset>
+
+    <legend>Step one</legend>
+
+    <div class="form-group {{ form_errors(form.firstName)? 'has-error' : '' }}">
+        {{ form_label(form.firstName, null, {'label_attr': {'class': 'col-sm-2 control-label' }}) }}
+        <div class="col-xs-6">
+            {{ form_widget(form.firstName, {'attr': {'class': 'form-control' }}) }}
+            {{ form_errors(form.firstName) }}
+        </div>
+    </div>
+
+    <div class="form-group {{ form_errors(form.lastName)? 'has-error' : '' }}">
+        {{ form_label(form.lastName, null, {'label_attr': {'class': 'col-sm-2 control-label' }}) }}
+        <div class="col-xs-6">
+            {{ form_widget(form.lastName, {'attr': {'class': 'form-control' }}) }}
+            {{ form_errors(form.lastName) }}
+        </div>
+    </div>
+
+    <div class="form-group {{ form_errors(form.email)? 'has-error' : '' }}">
+        {{ form_label(form.email, null, {'label_attr': {'class': 'col-sm-2 control-label' }}) }}
+        <div class="col-xs-6">
+            {{ form_widget(form.email, {'attr': {'class': 'form-control' }}) }}
+            {{ form_errors(form.email) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.birthday, null, {'label_attr': {'class': 'col-sm-2 control-label' }}) }}
+        <div class="controls">
+            {{ form_widget(form.birthday) }}
+        </div>
+    </div>
+
+    <div class="form-group {{ form_errors(form.shoeSize)? 'has-error' : '' }} ">
+        {{ form_label(form.shoeSize, null, {'label_attr': {'class': 'col-sm-2 control-label' }}) }}
+        <div class="col-xs-4">
+            {{ form_widget(form.shoeSize, {'attr': {'class': 'form-control' }}) }}
+            {{ form_errors(form.shoeSize) }}
+        </div>
+    </div>
+
+    {{ form_widget(form.ip, {value : app.request.clientIp}) }}
+    {{ form_widget(form.userSessionId, {value : app.session.id}) }}
+
+</fieldset>
+
+<a href="javascript:void(0)" class="btn btn-lg btn-success" id="js-submit-step-one"
+   data-url="{{ path('save_step_one') }}">Save</a>
+{{ form_end(form) }}

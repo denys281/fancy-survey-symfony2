@@ -18,11 +18,13 @@ class UserType extends AbstractType
             ->add('firstName')
             ->add('lastName')
             ->add('email')
-            ->add('birthday')
+            ->add('birthday', 'date', [
+                'years'  => range(date('Y'), date('Y')-100),
+            ])
             ->add('shoeSize')
-            ->add('userSessionId')
-            ->add('ip')
-            ->add('isFinishSurvey')
+            ->add('userSessionId', 'hidden')
+            ->add('ip', 'hidden')
+//            ->add('isFinishSurvey')
         ;
     }
     

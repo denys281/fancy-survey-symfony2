@@ -5,3 +5,12 @@ services:
 #    megogo_core.example:
 #        class: %megogo_core.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+    megogo_core.user_database:
+          class: Megogo\CoreBundle\Service\UserDatabaseService
+          arguments: ["@doctrine.orm.entity_manager"]
+    megogo_core.answer_database:
+          class: Megogo\CoreBundle\Service\AnswerDatabaseService
+          arguments: ["@doctrine.orm.entity_manager"]
+    megogo_core.form:
+          class: Megogo\CoreBundle\Service\FormService
+          arguments: ["@form.factory", "@session"]

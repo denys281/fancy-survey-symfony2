@@ -9,6 +9,10 @@
             <li>Get an awesome prize!</li>
         </ol>
     </div>
+
+    <div id="form-container">
+        {{ include('MegogoCoreBundle:Core:_registrationForm.html.twig',{'form': registrationForm}) }}
+    </div>
 {% endblock %}
 
 {% block time %}
