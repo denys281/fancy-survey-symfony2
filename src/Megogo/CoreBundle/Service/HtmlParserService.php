@@ -6,7 +6,7 @@ use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\CssSelector\CssSelector;
 
 /**
- * Class HtmlParserService
+ * Class HtmlParserService. Function for html parce
  * @package Megogo\CoreBundle\Service
  */
 class HtmlParserService

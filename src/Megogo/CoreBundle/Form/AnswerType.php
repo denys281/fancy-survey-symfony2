@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class AnswerType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
@@ -20,24 +20,33 @@ class AnswerType extends AbstractType
             ->add('superhero')
             ->add('movieStar')
             ->add('worldEnd')
-            ->add('worldEnd', 'date', [
-                    'years'  => range(date('Y'), date('Y')+200),
-                ])
+            ->add(
+                'worldEnd',
+                'date',
+                [
+                    'years' => range(date('Y'), date('Y') + 200),
+                ]
+            )
             ->add('superBowl')
-            ->add('user', 'entity_hidden', array(
+            ->add(
+                'user',
+                'entity_hidden',
+                array(
                     'class' => 'Megogo\CoreBundle\Entity\User'
-                ))
-        ;
+                )
+            );
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'Megogo\CoreBundle\Entity\Answer'
-        ));
+        $resolver->setDefaults(
+            array(
+                'data_class' => 'Megogo\CoreBundle\Entity\Answer'
+            )
+        );
 
     }
 

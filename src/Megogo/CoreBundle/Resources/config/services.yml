@@ -10,7 +10,7 @@ services:
           arguments: ["@doctrine.orm.entity_manager"]
     megogo_core.form:
           class: Megogo\CoreBundle\Service\FormService
-          arguments: ["@form.factory", "@session", "@megogo_core.database", "@templating", "@megogo_core.html_parser"]
+          arguments: ["@form.factory",  "@megogo_core.database", "@templating", "@megogo_core.html_parser", "@logger"]
     megogo_core.html_parser:
           class: Megogo\CoreBundle\Service\HtmlParserService
 #          arguments: ["@form.factory", "@session", "@megogo_core.database", "@templating"]

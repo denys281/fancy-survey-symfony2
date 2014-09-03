@@ -43,7 +43,10 @@ class DatabaseService
         return ['status' => 'success', 'msg' => 'Saved', 'user_id' => $form->getId()];
     }
 
-
+    /**
+     * @param object $form
+     * @return array
+     */
     public function saveStepTwoDataFrom($form)
     {
         $this->em->getConnection()->beginTransaction();
@@ -54,10 +57,12 @@ class DatabaseService
             $this->em->persist($user);
             $this->em->flush();
             $this->em->getConnection()->commit();
+
             return ['status' => 'success', 'msg' => 'Saved'];
         } catch (\Exception $e) {
             $this->em->getConnection()->rollback();
             $this->em->close();
+
             return ['status' => 'error', 'msg' => $e->getMessage()];
         }
     }

@@ -72,3 +72,28 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+
+services:
+    monolog.formatter.session_request:
+        class: Monolog\Formatter\LineFormatter
+        arguments:
+            - "[%%datetime%%] [%%extra.token%%] %%channel%%.%%level_name%%: %%message%%\n"
+
+    monolog.processor.session_request:
+        class: Megogo\CoreBundle\SessionRequestProcessor
+        arguments:  ["@session"]
+        tags:
+            - { name: monolog.processor, method: processRecord }
+
+monolog:
+    handlers:
+        main:
+          type:   stream
+          path:   "%kernel.logs_dir%/%kernel.environment%.log"
+          level:  debug
+        user:
+            type:   stream
+            path:   "%kernel.logs_dir%/user.log"
+            level:  error
+            formatter: monolog.formatter.session_request

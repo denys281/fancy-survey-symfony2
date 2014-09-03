@@ -337,16 +337,6 @@ class User
     {
         return $this->answer;
     }
-    /**
-     * @var \DateTime
-     */
-    private $createdAt;
-
-    /**
-     * @var \DateTime
-     */
-    private $updatedAt;
-
 
     /**
      * Set isOnReport

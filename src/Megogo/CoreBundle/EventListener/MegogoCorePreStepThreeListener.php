@@ -37,7 +37,6 @@ class MegogoCorePreStepThreeListener
         $this->router = $router;
     }
 
-
     /**
      *
      * Check in what step user now and if needed redirect to right step

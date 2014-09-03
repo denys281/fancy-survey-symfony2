@@ -30,7 +30,12 @@ class ApiController extends Controller
         return new JsonResponse($userFormResult);
     }
 
-
+    /**
+     * Save step two form. If success save step two data to db, and get data for step three. If validation error, return form step two with form errors
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function saveStepTwoAction(Request $request)
     {
         $userFormResult = $this->get('megogo_core.form')->handleStepTwoForm($request);

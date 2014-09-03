@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class UserType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
@@ -18,24 +18,29 @@ class UserType extends AbstractType
             ->add('firstName')
             ->add('lastName')
             ->add('email')
-            ->add('birthday', 'date', [
-                'years'  => range(date('Y'), date('Y')-100),
-            ])
+            ->add(
+                'birthday',
+                'date',
+                [
+                    'years' => range(date('Y'), date('Y') - 100),
+                ]
+            )
             ->add('shoeSize')
             ->add('userSessionId', 'hidden')
             ->add('ip', 'hidden')
-//            ->add('isFinishSurvey')
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'Megogo\CoreBundle\Entity\User'
-        ));
+        $resolver->setDefaults(
+            array(
+                'data_class' => 'Megogo\CoreBundle\Entity\User'
+            )
+        );
     }
 
     /**

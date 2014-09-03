@@ -6,6 +6,7 @@ use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
+ * Response for events
  * @package Megogo\CoreBundle\Event
  */
 class MegogoGetResponseCoreEvent extends Event

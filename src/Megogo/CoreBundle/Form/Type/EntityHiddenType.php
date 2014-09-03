@@ -12,6 +12,9 @@ class EntityHiddenType extends AbstractType
 {
     /**
      * @var ObjectManager
+     *
+     * @see https://gist.github.com/bjo3rnf/4061232
+     * @see http://lrotherfield.com/blog/symfony2-forms-entity-as-hidden-field/
      */
     protected $objectManager;
 
@@ -30,10 +33,11 @@ class EntityHiddenType extends AbstractType
     {
         $resolver
             ->setRequired(array('class'))
-            ->setDefaults(array(
+            ->setDefaults(
+                array(
                     'invalid_message' => 'The entity does not exist.',
-                ))
-        ;
+                )
+            );
     }
 
     public function getParent()

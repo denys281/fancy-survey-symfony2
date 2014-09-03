@@ -26,12 +26,13 @@ class CoreController extends Controller
     public function stepOneAction()
     {
         $event = new MegogoGetResponseCoreEvent();
-        $this->get('event_dispatcher')->dispatch(MegogoCoreEvents::PRE_STEP_ONE,  $event);
+        $this->get('event_dispatcher')->dispatch(MegogoCoreEvents::PRE_STEP_ONE, $event);
         if ($event->getResponse()) {
             return $event->getResponse();
         }
 
         $stepOneForm = $this->createForm(new UserType(), new User());
+
         return ['stepOneForm' => $stepOneForm->createView()];
     }
 
@@ -44,7 +45,7 @@ class CoreController extends Controller
     {
 
         $event = new MegogoGetResponseCoreEvent();
-        $this->get('event_dispatcher')->dispatch(MegogoCoreEvents::PRE_STEP_TWO,  $event);
+        $this->get('event_dispatcher')->dispatch(MegogoCoreEvents::PRE_STEP_TWO, $event);
         if ($event->getResponse()) {
             return $event->getResponse();
         }
@@ -53,7 +54,7 @@ class CoreController extends Controller
 
         $stepTwoForm = $this->createForm(new AnswerType(), new Answer());
 
-        return ['stepTwoForm' => $stepTwoForm->createView(), 'user_id'=> $userId];
+        return ['stepTwoForm' => $stepTwoForm->createView(), 'user_id' => $userId];
     }
 
 
