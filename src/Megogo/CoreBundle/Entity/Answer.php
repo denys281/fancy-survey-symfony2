@@ -4,6 +4,7 @@ namespace Megogo\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
  * Answer
@@ -13,6 +14,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Answer
 {
+    use  ORMBehaviors\Timestampable\Timestampable;
+
+
     /**
      * @var integer
      *

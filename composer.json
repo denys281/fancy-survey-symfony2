@@ -23,6 +23,7 @@
 
         "doctrine/data-fixtures" : "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
+        "knplabs/doctrine-behaviors": "dev-master",
 
         "doctrine/migrations": "dev-master",
         "doctrine/doctrine-migrations-bundle": "dev-master",
