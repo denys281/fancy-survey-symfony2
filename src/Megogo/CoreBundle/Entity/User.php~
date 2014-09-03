@@ -337,38 +337,4 @@ class User
     {
         return $this->answer;
     }
-    /**
-     * @var \DateTime
-     */
-    private $createdAt;
-
-    /**
-     * @var \DateTime
-     */
-    private $updatedAt;
-
-
-    /**
-     * Set isOnReport
-     *
-     * @param boolean $isOnReport
-     * @return User
-     */
-    public function setIsOnReport($isOnReport)
-    {
-        $this->isOnReport = $isOnReport;
-
-        return $this;
-    }
-
-    /**
-     * Get isOnReport
-     *
-     * @return boolean 
-     */
-    public function getIsOnReport()
-    {
-        return $this->isOnReport;
-    }
-
 }
