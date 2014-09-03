@@ -40,10 +40,19 @@
         {% endblock%}
         <div class="container">
             <div class="col-xs-12 col-sm-9">
+                <div class="jumbotron">
+                    <h2>Getting your AWESOME PRIZE is easy!</h2>
+                    <ol>
+                        <li>Sign up and complete a survey</li>
+                        <li>Tell us more about yourself</li>
+                        <li>Get an awesome prize!</li>
+                    </ol>
+                </div>
                 {% block body %}{% endblock %}
             </div>
             <div id="sidebar" class="col-xs-6 col-sm-3">
-                {% block time %}{% endblock %}
+                <p>Time remaining to complete your tasks</p>
+                <h1>0 seconds</h1>
             </div>
         </div>
         {% block javascripts %}
@@ -51,6 +60,7 @@
             'components/jquery/jquery.js'
             'components/bootstrap/js/bootstrap.js'
             'components/bootstrap/js/bootstrap.js'
+            '@MegogoCoreBundle/Resources/public/js/app/plugins/*'
             '@MegogoCoreBundle/Resources/public/js/app/util/util.js'
             '@MegogoCoreBundle/Resources/public/js/app/controllers/*'
             %}

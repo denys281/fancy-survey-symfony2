@@ -1,14 +1,14 @@
-MEGOGO.homepage = {
+MEGOGO.step_two = {
 
     init: function () {
-        $("#js-submit-step-one").on('click', MEGOGO.homepage.saveStepOne);
+        $("#js-submit-step-two").on('click', MEGOGO.step_two.saveStepTwo);
 
     },
 
-    saveStepOne: function() {
+    saveStepTwo: function() {
 
-        var url = $('#js-submit-step-one').data('url');
-        var formData = $('#registration').serialize();
+        var url = $('#js-submit-step-two').data('url');
+        var formData = $('#stepTwo').serialize();
 
         $.ajax({
             url: url,
@@ -18,11 +18,10 @@ MEGOGO.homepage = {
             success:
                 function(result) {
                     if (result.status === 'invalid') {
-                        $('#form-container').html($.parseHTML(result.stepOneFormView));
-                        $("#js-submit-step-one").on('click', MEGOGO.homepage.saveStepOne);
-                    }else if(result.status === 'valid') {
                         $('#form-container').html($.parseHTML(result.stepTwoFormView));
                         $("#js-submit-step-two").on('click', MEGOGO.step_two.saveStepTwo);
+                    }else if(result.status === 'valid') {
+                        $('#form-container').html($.parseHTML(result.stepThreeView));
                     }else {
                         alert ('Error save to db')
                     }

@@ -4,37 +4,38 @@ namespace Megogo\CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
+
+/**
+ * Class ApiController
+ * @package Megogo\CoreBundle\Controller
+ */
 class ApiController extends Controller
 {
+    /**
+     * Save step one form, if success save step one to db and return step two form. If error validation, return form for step one with validation error
+     *
+     * @param Request $request
+     * @return JsonResponse  status valid|invalid.
+     */
     public function saveStepOneAction(Request $request)
     {
-        $userForm = $this->get('megogo_core.form')->handleUserForm($request);
-
-        if ($userForm['status'] === 'valid') {
-            $saveData = $this->get('megogo_core.user_database')->saveUserDataFrom($userForm['registration']);
-            return new JsonResponse($saveData);
-        } else {
-            $formView = $this->renderView('MegogoCoreBundle:Core:_registrationForm.html.twig', array('form' => $userForm['form']->createView()));
-            return new JsonResponse(['status' => 'error', 'html' => $formView ]);
+        if ($this->get('megogo_core.database')->checkIfUserFinishStepOne($this->get('session')->getId())) {
+            return new JsonResponse(['status' => 'exist']);
         }
+
+        $userFormResult = $this->get('megogo_core.form')->handleStepOneForm($request);
+
+        return new JsonResponse($userFormResult);
     }
 
-    public function renderStepTwoAction()
-    {
-        return new JsonResponse();
-    }
 
-    public function saveStepTwoAction()
+    public function saveStepTwoAction(Request $request)
     {
-        return new JsonResponse();
-    }
+        $userFormResult = $this->get('megogo_core.form')->handleStepTwoForm($request);
 
-    public function renderStepThreeAction()
-    {
-        return new JsonResponse();
+        return new JsonResponse($userFormResult);
     }
 
     public function getUserAction()

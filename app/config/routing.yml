@@ -4,5 +4,5 @@ megogo_core:
 
 homepage:
     pattern:  /
-    defaults: { _controller: MegogoCoreBundle:Core:index }
+    defaults: { _controller: MegogoCoreBundle:Core:stepOne }
 

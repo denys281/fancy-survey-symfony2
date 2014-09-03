@@ -3,6 +3,7 @@
 namespace Megogo\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Answer
@@ -24,6 +25,7 @@ class Answer
     /**
      * @var string
      *
+     * @Assert\NotNull()
      * @ORM\Column(name="ice_cream", type="string", length=255)
      */
     private $iceCream;
@@ -31,6 +33,7 @@ class Answer
     /**
      * @var string
      *
+     * @Assert\NotNull()
      * @ORM\Column(name="superhero", type="string", length=255)
      */
     private $superhero;
@@ -38,13 +41,15 @@ class Answer
     /**
      * @var string
      *
+     * @Assert\NotNull()
      * @ORM\Column(name="movie_star", type="string", length=255)
      */
     private $movieStar;
 
     /**
      * @var \DateTime
-     *
+
+     * @Assert\NotNull()
      * @ORM\Column(name="world_end", type="date")
      */
     private $worldEnd;
@@ -52,6 +57,7 @@ class Answer
     /**
      * @var string
      *
+     * @Assert\NotNull()
      * @ORM\Column(name="super_bowl", type="string", length=255)
      */
     private $superBowl;

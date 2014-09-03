@@ -5,12 +5,32 @@ services:
 #    megogo_core.example:
 #        class: %megogo_core.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
-    megogo_core.user_database:
-          class: Megogo\CoreBundle\Service\UserDatabaseService
-          arguments: ["@doctrine.orm.entity_manager"]
-    megogo_core.answer_database:
-          class: Megogo\CoreBundle\Service\AnswerDatabaseService
+    megogo_core.database:
+          class: Megogo\CoreBundle\Service\DatabaseService
           arguments: ["@doctrine.orm.entity_manager"]
     megogo_core.form:
           class: Megogo\CoreBundle\Service\FormService
-          arguments: ["@form.factory", "@session"]
+          arguments: ["@form.factory", "@session", "@megogo_core.database", "@templating", "@megogo_core.html_parser"]
+    megogo_core.html_parser:
+          class: Megogo\CoreBundle\Service\HtmlParserService
+#          arguments: ["@form.factory", "@session", "@megogo_core.database", "@templating"]
+    megogo_core.event.pre_step_one_listener:
+         class: Megogo\CoreBundle\EventListener\MegogoCorePreStepOneListener
+         arguments: ["@megogo_core.database", "@session", "@router"]
+         tags:
+              - { name: kernel.event_listener, event: megogo_core.pre_step_one, method: onPreStepOne }
+    megogo_core.event.pre_step_two_listener:
+         class: Megogo\CoreBundle\EventListener\MegogoCorePreStepTwoListener
+         arguments: ["@megogo_core.database", "@session", "@router"]
+         tags:
+              - { name: kernel.event_listener, event: megogo_core.pre_step_two, method: onPreStepTwo }
+    megogo_core.event.pre_step_three_listener:
+         class: Megogo\CoreBundle\EventListener\MegogoCorePreStepThreeListener
+         arguments: ["@megogo_core.database", "@session", "@router"]
+         tags:
+              - { name: kernel.event_listener, event: megogo_core.pre_step_three, method: onPreStepThree }
+    megogo_core.type.entity_hidden:
+       class: Megogo\CoreBundle\Form\Type\EntityHiddenType
+       arguments: ["@doctrine.orm.entity_manager"]
+       tags:
+       - { name: form.type, alias: entity_hidden }

@@ -1,0 +1,7 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div id="form-container">
+        {{ include('MegogoCoreBundle:Core:_stepOneForm.html.twig',{'form': stepOneForm}) }}
+    </div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% form_theme form _self %}
+
+{% block form_errors -%}
+    {% if errors is defined -%}
+        {%- for error in errors -%}
+            <p class="help-block">{{ error.message }}</p>
+        {%- endfor -%}
+    {%- endif %}
+{%- endblock form_errors %}
+
+
+
+{{ form_start(form, {'attr': {'id': 'stepTwo', 'class': 'form-horizontal' }}) }}
+{{ form_errors(form) }}
+<fieldset>
+
+    <legend>Step two</legend>
+
+    <div class="form-group {{ form_errors(form.iceCream)? 'has-error' : '' }}">
+        {{ form_label(form.iceCream, null, {'label_attr': {'class': 'col-sm-2 control-label' }}) }}
+        <div class="col-xs-6">
+            {{ form_widget(form.iceCream, {'attr': {'class': 'form-control' }}) }}
+            {{ form_errors(form.iceCream) }}
+        </div>
+    </div>
+
+    <div class="form-group {{ form_errors(form.superhero)? 'has-error' : '' }}">
+        {{ form_label(form.superhero, null, {'label_attr': {'class': 'col-sm-2 control-label' }}) }}
+        <div class="col-xs-6">
+            {{ form_widget(form.superhero, {'attr': {'class': 'form-control' }}) }}
+            {{ form_errors(form.superhero) }}
+        </div>
+    </div>
+
+    <div class="form-group {{ form_errors(form.movieStar)? 'has-error' : '' }}">
+        {{ form_label(form.movieStar, null, {'label_attr': {'class': 'col-sm-2 control-label' }}) }}
+        <div class="col-xs-6">
+            {{ form_widget(form.movieStar, {'attr': {'class': 'form-control' }}) }}
+            {{ form_errors(form.movieStar) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.worldEnd, null, {'label_attr': {'class': 'col-sm-2 control-label' }}) }}
+        <div class="controls">
+            {{ form_widget(form.worldEnd) }}
+        </div>
+    </div>
+
+    <div class="form-group {{ form_errors(form.superBowl)? 'has-error' : '' }} ">
+        {{ form_label(form.superBowl, null, {'label_attr': {'class': 'col-sm-2 control-label' }}) }}
+        <div class="col-xs-4">
+            {{ form_widget(form.superBowl, {'attr': {'class': 'form-control' }}) }}
+            {{ form_errors(form.superBowl) }}
+        </div>
+    </div>
+
+    {{ form_widget(form.user, {value : user_id}) }}
+
+</fieldset>
+
+<a href="javascript:void(0)" class="btn btn-lg btn-success" id="js-submit-step-two"
+   data-url="{{ path('save_step_two') }}">Save</a>
+{{ form_end(form) }}

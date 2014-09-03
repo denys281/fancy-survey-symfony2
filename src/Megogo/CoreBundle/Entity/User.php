@@ -41,6 +41,7 @@ class User
     /**
      * @var string
      *
+     * @Assert\NotNull()
      * @Assert\Email()
      *
      * @ORM\Column(name="email", type="string", length=255)

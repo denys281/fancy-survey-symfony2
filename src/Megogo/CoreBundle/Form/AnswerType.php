@@ -14,13 +14,19 @@ class AnswerType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         $builder
             ->add('iceCream')
             ->add('superhero')
             ->add('movieStar')
             ->add('worldEnd')
+            ->add('worldEnd', 'date', [
+                    'years'  => range(date('Y'), date('Y')+200),
+                ])
             ->add('superBowl')
-            ->add('user')
+            ->add('user', 'entity_hidden', array(
+                    'class' => 'Megogo\CoreBundle\Entity\User'
+                ))
         ;
     }
     
@@ -32,6 +38,7 @@ class AnswerType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'Megogo\CoreBundle\Entity\Answer'
         ));
+
     }
 
     /**
