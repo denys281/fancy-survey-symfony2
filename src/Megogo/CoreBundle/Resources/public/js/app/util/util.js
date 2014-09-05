@@ -13,8 +13,5 @@ $(document).ready(function () {
     if (route_function && typeof route_function === 'function') {
         route_function();
     }
+
 });
-
-
-
-

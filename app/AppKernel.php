@@ -17,6 +17,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Megogo\CoreBundle\MegogoCoreBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
 
             //Doctrine
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),

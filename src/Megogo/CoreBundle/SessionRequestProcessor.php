@@ -26,8 +26,13 @@ class SessionRequestProcessor
     {
         $this->session = $session;
 
-        // I didn't understand why, but without in session id empty
-        $session->start();
+//        // I didn't understand why, but without in session id empty
+//        if (!$session->isStarted()){
+//            $session->start();
+//        }
+
+//        var_dump( $this->session->getId());
+//        die();
 
     }
 

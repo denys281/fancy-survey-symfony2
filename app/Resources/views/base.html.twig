@@ -18,7 +18,7 @@
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
-    <body data-route="{{ app.request.get('_route') }}">
+    <body data-route="{{ app.request.get('_route') }}" data-homepage_route="{{ path('homepage') }}" data-clear_session_data_route="{{ path('clear_session_data') }}">
         {% block header %}
             {% block navigation %}
                <navigation>
@@ -52,7 +52,8 @@
             </div>
             <div id="sidebar" class="col-xs-6 col-sm-3">
                 <p>Time remaining to complete your tasks</p>
-                <h1>0 seconds</h1>
+                {#<div id="time"></div>d>#}
+                <h1><span id="time"></span> seconds</h1>
             </div>
         </div>
         {% block javascripts %}

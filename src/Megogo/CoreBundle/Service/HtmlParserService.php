@@ -32,7 +32,7 @@ class HtmlParserService
         );
 
         // Get path to gif
-        return $crawler->filterXpath($selector)->attr('value');
+        return $crawler->filterXpath($selector)->eq(1)->attr('value');
     }
 
 

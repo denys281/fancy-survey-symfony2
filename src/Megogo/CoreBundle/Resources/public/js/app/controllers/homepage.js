@@ -17,11 +17,11 @@ MEGOGO.homepage = {
             dataType: "json",
             success:
                 function(result) {
-                    if (result.status === 'invalid') {
-                        $('#form-container').html($.parseHTML(result.stepOneFormView));
+                    if (result === 'ok') {
+                       $('#form-container').html($.parseHTML(result.stepOneFormView));
                         $("#js-submit-step-one").on('click', MEGOGO.homepage.saveStepOne);
                     }else if(result.status === 'valid') {
-                        $('#form-container').html($.parseHTML(result.stepTwoFormView));
+                        $('#form-container') .html($.parseHTML(result.stepTwoFormView));
                         $("#js-submit-step-two").on('click', MEGOGO.step_two.saveStepTwo);
                     }else {
                         alert ('Error save to db')

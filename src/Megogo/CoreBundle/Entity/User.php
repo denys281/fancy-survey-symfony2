@@ -5,12 +5,14 @@ namespace Megogo\CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * User
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Megogo\CoreBundle\Entity\UserRepository")
+ * @XmlRoot("user")
  */
 class User
 {

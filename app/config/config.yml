@@ -74,17 +74,8 @@ swiftmailer:
     spool:     { type: memory }
 
 
-services:
-    monolog.formatter.session_request:
-        class: Monolog\Formatter\LineFormatter
-        arguments:
-            - "[%%datetime%%] [%%extra.token%%] %%channel%%.%%level_name%%: %%message%%\n"
+#services:
 
-    monolog.processor.session_request:
-        class: Megogo\CoreBundle\SessionRequestProcessor
-        arguments:  ["@session"]
-        tags:
-            - { name: monolog.processor, method: processRecord }
 
 monolog:
     handlers:

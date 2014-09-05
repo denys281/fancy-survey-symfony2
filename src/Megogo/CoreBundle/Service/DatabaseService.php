@@ -90,4 +90,9 @@ class DatabaseService
 
     }
 
+    public function getUserForXml()
+    {
+        return $this->userRepository->getUserForXml();
+    }
+
 }

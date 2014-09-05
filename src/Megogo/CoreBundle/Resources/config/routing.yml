@@ -11,6 +11,9 @@ get_user:
     path:     api/v1/getUser.json
     defaults: { _controller: MegogoCoreBundle:Api:getUser }
 
+clear_session_data:
+    path:     api/v1/clearSessionData.json
+    defaults: { _controller: MegogoCoreBundle:Api:clearSession }
 
 step_two:
   path: /stepTwo

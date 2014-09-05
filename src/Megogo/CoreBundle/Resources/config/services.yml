@@ -34,3 +34,12 @@ services:
        arguments: ["@doctrine.orm.entity_manager"]
        tags:
        - { name: form.type, alias: entity_hidden }
+    monolog.formatter.session_request:
+           class: Monolog\Formatter\LineFormatter
+           arguments:
+               - "[%%datetime%%] [%%extra.token%%] %%channel%%.%%level_name%%: %%message%%\n"
+    monolog.processor.session_request:
+       class: Megogo\CoreBundle\SessionRequestProcessor
+       arguments:  ["@session"]
+       tags:
+           - { name: monolog.processor, method: processRecord }

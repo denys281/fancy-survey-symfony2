@@ -20,6 +20,9 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "symfony/dom-crawler": "~2.5.3",
         "symfony/css-selector": "dev-master",
+        "symfony/finder": "2.6.*@dev",
+        "symfony/filesystem": "2.6.*@dev",
+        "jms/serializer-bundle": "dev-master",
 
         "doctrine/data-fixtures" : "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
@@ -34,7 +37,6 @@
         "components/jqueryui": ">= 1.9.0",
         "components/bootstrap": "~3.0",
         "components/font-awesome": "~4.0"
-
 
     },
     "require-dev": {
