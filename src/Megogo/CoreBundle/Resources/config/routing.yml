@@ -20,7 +20,7 @@ step_two:
   defaults: { _controller: MegogoCoreBundle:Core:stepTwo }
 
 step_three:
-  path: /step_three
+  path: /stepThree
   defaults: { _controller: MegogoCoreBundle:Core:stepThree }
 
 

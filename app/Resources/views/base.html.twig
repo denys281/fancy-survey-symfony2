@@ -18,7 +18,7 @@
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
-    <body data-route="{{ app.request.get('_route') }}" data-homepage_route="{{ path('homepage') }}" data-clear_session_data_route="{{ path('clear_session_data') }}">
+    <body data-route="{{ app.request.get('_route') }}" data-homepage_route="{{ path('homepage') }}" data-step_two_route="{{ path('step_two') }}" data-step_three_route="{{ path('step_three') }}" data-clear_session_data_route="{{ path('clear_session_data') }}">
         {% block header %}
             {% block navigation %}
                <navigation>
@@ -62,6 +62,7 @@
             'components/bootstrap/js/bootstrap.js'
             'components/bootstrap/js/bootstrap.js'
             '@MegogoCoreBundle/Resources/public/js/app/plugins/*'
+            '//browserstate.github.io/history.js/scripts/bundled/html4+html5/jquery.history.js'
             '@MegogoCoreBundle/Resources/public/js/app/util/util.js'
             '@MegogoCoreBundle/Resources/public/js/app/controllers/*'
             %}
