@@ -13,6 +13,7 @@
 #Not good practice but
 web/components/*
 app/config/deploy.rb
+src/Megogo/CoreBundle/Resources/views/Api/report.xml.twig
 
 .DS_Store
 */.DS_Store
