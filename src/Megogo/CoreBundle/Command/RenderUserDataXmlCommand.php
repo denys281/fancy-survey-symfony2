@@ -47,10 +47,14 @@ class RenderUserDataXmlCommand extends Command
             if ($fileExist) {
                 $output->writeln("<error>Command already run at this moment. Please, try later</error>");
             } else {
+                //Create lock file
                 $fs->touch($pidFilePath);
+
                 $output->writeln("<info>Create report</info>");
                 $file = $container->get('megogo_core.xml_report')->createLog();
                 $output->writeln("<info>Success</info>");
+
+                //Remove log file
                 $fs->remove($pidFilePath);
             }
         } catch (\Exception $e) {
@@ -59,12 +63,16 @@ class RenderUserDataXmlCommand extends Command
             $fs->remove($pidFilePath);
         }
 
+        //Send email
         $email = $input->getArgument('email');
 
-        if ($email){
+        if ($email) {
             $time = new \DateTime();
             $output->writeln("<info>Send email</info>");
-            $container->get('megogo_core.mailer_wrap')->sendEmailAfterXmlReportCreated($email, $time->format('H:i:s \O\n Y-m-d'));
+            $container->get('megogo_core.mailer_wrap')->sendEmailAfterXmlReportCreated(
+                $email,
+                $time->format('H:i:s \O\n Y-m-d')
+            );
         }
     }
 

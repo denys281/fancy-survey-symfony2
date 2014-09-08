@@ -1,15 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: denyskurets
- * Date: 03.09.14
- * Time: 23:32
- */
 
 namespace Megogo\CoreBundle;
 
 use Symfony\Component\HttpFoundation\Session\Session;
 
+/**
+ *
+ * Add session id to log
+ * Class SessionRequestProcessor
+ * @package Megogo\CoreBundle
+ * @see http://symfony.com/doc/current/cookbook/logging/monolog.html#adding-a-session-request-token
+ *
+ */
 class SessionRequestProcessor
 {
     /**
@@ -26,13 +28,10 @@ class SessionRequestProcessor
     {
         $this->session = $session;
 
-//        // I didn't understand why, but without in session id empty
+        // I didn't understand why, but without in session id empty
         if (!$session->isStarted()){
             $session->start();
         }
-
-//        var_dump( $this->session->getId());
-//        die();
 
     }
 

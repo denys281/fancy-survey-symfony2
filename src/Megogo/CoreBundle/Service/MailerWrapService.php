@@ -6,7 +6,7 @@ use \Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use \Swift_Mailer;
 
 /**
- * Class MailerWrapService
+ * Send email
  *
  * @package Megogo\CoreBundle\Service
  */

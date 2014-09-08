@@ -8,13 +8,17 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
+/**
+ * Class EntityHiddenType
+ * @package Megogo\CoreBundle\Form\Type
+ * @see https://gist.github.com/bjo3rnf/4061232
+ * @see http://lrotherfield.com/blog/symfony2-forms-entity-as-hidden-field/
+ */
 class EntityHiddenType extends AbstractType
 {
     /**
      * @var ObjectManager
      *
-     * @see https://gist.github.com/bjo3rnf/4061232
-     * @see http://lrotherfield.com/blog/symfony2-forms-entity-as-hidden-field/
      */
     protected $objectManager;
 
