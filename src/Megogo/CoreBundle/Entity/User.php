@@ -12,7 +12,6 @@ use JMS\Serializer\Annotation\XmlRoot;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Megogo\CoreBundle\Entity\UserRepository")
- * @XmlRoot("user")
  */
 class User
 {
