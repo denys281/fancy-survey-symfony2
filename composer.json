@@ -22,6 +22,7 @@
         "symfony/css-selector": "dev-master",
         "symfony/finder": "2.6.*@dev",
         "symfony/filesystem": "2.6.*@dev",
+        "symfony/serializer":  "2.6.*@dev",
         "jms/serializer-bundle": "dev-master",
 
         "doctrine/data-fixtures" : "dev-master",

@@ -5,7 +5,7 @@ namespace Megogo\CoreBundle\Service;
 use Doctrine\ORM\EntityManager;
 
 /**
- * Class DatabaseService, work with repository, etc.
+ * Class DatabaseService, work with db repository, etc.
  * @package Megogo\CoreBundle\Service
  */
 class DatabaseService
@@ -90,9 +90,22 @@ class DatabaseService
 
     }
 
-    public function getUserForXml()
+    public function getUserForXmlReport()
     {
-        return $this->userRepository->getUserForXml();
+        return $this->userRepository->getUserForXmlReport();
+    }
+
+    /**
+     * Set that user data in reprot
+     * @param $id
+     */
+    public function  checkUserInReport($id)
+    {
+        $user = $this->userRepository->findOneById($id);
+        $user->setIsOnReport(true);
+        $this->em->persist($user);
+        $this->em->flush();
+
     }
 
 }

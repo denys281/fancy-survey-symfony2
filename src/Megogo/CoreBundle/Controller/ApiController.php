@@ -44,20 +44,24 @@ class ApiController extends Controller
         return new JsonResponse($userFormResult);
     }
 
-    public function getUserAction()
+    /**
+     * @return Response
+     */
+    public function getReportAction()
     {
         $response = new Response();
         $response->headers->set('Content-Type', 'xml');
 
-        return $this->render('MegogoCoreBundle:Api:userReport.xml.twig',[], $response);
+        return $this->render('MegogoCoreBundle:Api:report.xml.twig',[], $response);
     }
 
-
+    /**
+     * @return JsonResponse
+     */
     public function clearSessionAction()
     {
 
-        $s = $this->get('session')->invalidate();
-
+        $this->get('session')->invalidate();
         return new JsonResponse('ok');
     }
 

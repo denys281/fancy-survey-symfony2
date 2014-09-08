@@ -13,7 +13,7 @@ use Doctrine\ORM\EntityRepository;
 class UserRepository extends EntityRepository
 {
 
-    public function getUserForXml()
+    public function getUserForXmlReport()
     {
         $qb = $this->getEntityManager()->createQueryBuilder();
 

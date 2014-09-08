@@ -1,5 +1,5 @@
 parameters:
-#    megogo_core.example.class: Megogo\CoreBundle\Example
+   megogo_core.from_email: robot@fancy.com
 
 services:
 #    megogo_core.example:
@@ -43,3 +43,9 @@ services:
        arguments:  ["@session"]
        tags:
            - { name: monolog.processor, method: processRecord }
+    megogo_core.xml_report:
+        class: Megogo\CoreBundle\Service\XmlReportService
+        arguments: ["@megogo_core.database"]
+    megogo_core.mailer_wrap:
+        class:        Megogo\CoreBundle\Service\MailerWrapService
+        arguments:    ["@mailer", "@templating", %megogo_core.from_email%]

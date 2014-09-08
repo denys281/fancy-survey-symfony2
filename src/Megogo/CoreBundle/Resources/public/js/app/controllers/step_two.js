@@ -22,7 +22,7 @@ MEGOGO.step_two = {
                         $("#js-submit-step-two").on('click', MEGOGO.step_two.saveStepTwo);
                     }else if(result.status === 'valid') {
                         $('#form-container').html($.parseHTML(result.stepThreeView));
-                        History.pushState({state:2}, "State 2", $('body').data('step_three_route'));
+                        History.pushState({state:2}, "Fancy survey - Result", $('body').data('step_three_route'));
                     }else {
                         alert ('Error save to db')
                     }
