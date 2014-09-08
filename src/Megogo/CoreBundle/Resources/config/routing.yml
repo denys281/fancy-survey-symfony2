@@ -24,7 +24,7 @@ step_three:
   defaults: { _controller: MegogoCoreBundle:Core:stepThree }
 
 get_report:
-  path: /api/stream.xml
+  path: /api/stream
   defaults: { _controller: MegogoCoreBundle:Api:getReport }
 
 

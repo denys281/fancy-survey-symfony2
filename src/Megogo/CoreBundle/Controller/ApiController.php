@@ -50,9 +50,12 @@ class ApiController extends Controller
     public function getReportAction()
     {
         $response = new Response();
-        $response->headers->set('Content-Type', 'xml');
+        $response->headers->set('Content-Type', 'application/xml');
 
-        return $this->render('MegogoCoreBundle:Api:report.xml.twig',[], $response);
+        $xmlFilePathForWrite = __DIR__ . '/../Resources/views/Api/report.xml.twig';
+        $response->setContent(file_get_contents($xmlFilePathForWrite));
+
+        return $response;
     }
 
     /**
